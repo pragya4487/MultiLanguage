@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MultiLanguage</string>
+    <string name="text_Username">Nom d\'utilisateur</string>
+    <string name="edit_Username">Saisissez votre nom d\'utilisateur</string>
+    <string name="text_Password">Mot de passe</string>
+    <string name="edit_Password">Entrer le mot de passe</string>
+    <string name="btn_login">S\'identifier</string>
+</resources>

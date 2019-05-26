@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MultiLanguage</string>
+    <string name="text_Username">Username</string>
+    <string name="edit_Username">Enter Username</string>
+    <string name="text_Password">Password</string>
+    <string name="edit_Password">Enter Password</string>
+    <string name="btn_login">Login</string>
+</resources>
