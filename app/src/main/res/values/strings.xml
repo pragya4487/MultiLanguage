@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MultiLanguage</string>
+    <string name="app_name" translatable="false">MultiLanguage</string>
     <string name="text_Username">Username</string>
     <string name="edit_Username">Enter Username</string>
     <string name="text_Password">Password</string>
