@@ -10,6 +10,8 @@ public class SecondActivity extends AppCompatActivity {
 
     Button btnlogout;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,9 +23,10 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-               Intent intent=new Intent();
-                setResult(2,intent);
-                //finish();
+               Intent intent=new Intent(SecondActivity.this,MainActivity.class);
+                setResult(RESULT_OK,intent);
+                startActivity(intent);
+                finish();
             }
         });
 

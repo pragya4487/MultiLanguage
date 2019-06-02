@@ -2,19 +2,17 @@ package com.example.multilanguage;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
     Button login;
-    SharedPreferences sp;
+    public SharedPreferences sp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
 
         sp = getSharedPreferences("login",MODE_PRIVATE);
 
+//        sp.edit().putBoolean("logged",false).apply();
+
         if(sp.getBoolean("logged",false)){
             goToMainActivity();
         }
@@ -38,26 +38,24 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 goToMainActivity();
                 sp.edit().putBoolean("logged",true).apply();
+                finish();
+
             }
         });
     }
 
     private void goToMainActivity() {
         Intent i = new Intent(this,SecondActivity.class);
-        startActivityForResult(i,2);
+        startActivityForResult(i,RESULT_OK);
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
-
-        if(requestCode==2) {
-//            recreate();
-        }
-        else{
-//            Intent myIntent = new Intent(MainActivity.this, SecondActivity.class);
-//            startActivity(myIntent);
-//            finish();
+        if(requestCode==RESULT_OK) {
+            sp.edit().putBoolean("logged",false).apply();
+            Intent myIntent = getIntent();
+            startActivity(myIntent);
         }
     }
 }
