@@ -60,9 +60,6 @@ public class MainActivity extends AppCompatActivity {
                 Intent myIntent = getIntent();
                 startActivity(myIntent);
             }
-            if (resultCode == Activity.RESULT_CANCELED) {
-                //Write your code if there's no result
-            }
         }
     }
 }
