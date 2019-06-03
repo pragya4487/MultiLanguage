@@ -25,8 +25,8 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-               Intent intent=getIntent();
-               intent.putExtra("Message",string);
+               Intent intent=new Intent();
+//               intent.putExtra("Message",string);
                setResult(Activity.RESULT_OK,intent);
                Log.d("SecondActivity: ","running");
                finish();

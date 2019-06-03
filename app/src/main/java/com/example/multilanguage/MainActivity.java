@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void goToMainActivity() {
         Intent i = new Intent(this,SecondActivity.class);
-        startActivityForResult(i,Activity.RESULT_OK);
+        startActivityForResult(i,1);
         finish();
     }
 
@@ -54,10 +54,15 @@ public class MainActivity extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
         Log.d("msg: ", "Message");
-        if(requestCode== Activity.RESULT_OK) {
-            sp.edit().putBoolean("logged",false).apply();
-            Intent myIntent = getIntent();
-            startActivity(myIntent);
+        if(requestCode== 1) {
+            if(resultCode == Activity.RESULT_OK) {
+                sp.edit().putBoolean("logged", false).apply();
+                Intent myIntent = getIntent();
+                startActivity(myIntent);
+            }
+            if (resultCode == Activity.RESULT_CANCELED) {
+                //Write your code if there's no result
+            }
         }
     }
 }
