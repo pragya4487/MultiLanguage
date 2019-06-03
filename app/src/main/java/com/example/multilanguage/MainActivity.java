@@ -1,9 +1,11 @@
 package com.example.multilanguage;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -38,21 +40,21 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 goToMainActivity();
                 sp.edit().putBoolean("logged",true).apply();
-                finish();
-
             }
         });
     }
 
     private void goToMainActivity() {
         Intent i = new Intent(this,SecondActivity.class);
-        startActivityForResult(i,RESULT_OK);
+        startActivityForResult(i,Activity.RESULT_OK);
+        finish();
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
-        if(requestCode==RESULT_OK) {
+        Log.d("msg: ", "Message");
+        if(requestCode== Activity.RESULT_OK) {
             sp.edit().putBoolean("logged",false).apply();
             Intent myIntent = getIntent();
             startActivity(myIntent);
